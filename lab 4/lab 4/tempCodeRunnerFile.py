@@ -7,9 +7,12 @@ class ExpressionCalculator:
             return result
         except ZeroDivisionError:
             print("Ділення на нуль. Результат невизначений для цього значення x.")
+            return None
+        except Exception as e:
+            print(f"Виникла помилка: {e}")
+            return None
 
-# Створення екземпляру класу та виклик методу calculate_expression
 calculator = ExpressionCalculator()
-x_value = 0  # Задайте значення x
+x_value = 0
 result = calculator.calculate_expression(x_value)
-print(f"Результат виразу при x = {x_value} є: {result}")
+print(f'Результат при х = {x_value}: {result}')

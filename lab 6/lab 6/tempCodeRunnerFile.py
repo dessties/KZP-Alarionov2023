@@ -2,9 +2,8 @@ class PencilCase:
     def __init__(self):
         self.contents = []
 
-    def add_item(self, number, item):
+    def add_item(self, item):
         self.contents.append(item)
-        self.contents.append(number)
 
     def remove_item(self, item):
         if item in self.contents:
@@ -28,13 +27,15 @@ class PencilCase:
         else:
             print("Пенал порожній. Немає мінімального елементу.")
 
-# Приклад використання класу "Пенал"
-pen_case = PencilCase()
+    @classmethod
+    def create_with_items(cls, *args):
+        pencil_case = cls()
+        for item in args:
+            pencil_case.add_item(item)
+        return pencil_case
 
-pen_case.add_item(5, "ручка")
-pen_case.add_item(10)
-pen_case.add_item(3)
-pen_case.add_item(7)
+# Приклад використання параметризованого класу "Пенал"
+pen_case = PencilCase.create_with_items(5, 10, 3, 7)
 
 pen_case.view_items()  # Виведе всі елементи у пеналі
 

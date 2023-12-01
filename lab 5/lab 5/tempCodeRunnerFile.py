@@ -9,6 +9,9 @@ class ExpressionCalculator:
         except ZeroDivisionError:
             print("Ділення на нуль. Результат невизначений для цього значення x.")
             return None
+        except Exception as e:
+            print(f"Виникла помилка: {e}")
+            return None
 
 class ResultSaver:
     @staticmethod
